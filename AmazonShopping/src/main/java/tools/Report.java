@@ -31,7 +31,10 @@ public class Report extends AmazonTest {
 		System.out.println("Reporting started...");
 	}
 
-	// Function to Capture Screenshot
+	/*
+	 * Function to Capture Screenshot.
+	 * @author Aditya
+	 */
 	public String captureScreen() {
 		File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String screenShotDestination = null;
@@ -40,7 +43,7 @@ public class Report extends AmazonTest {
 			fileInputStreamReader = new FileInputStream(sourceFile);
 			byte[] bytes = new byte[(int) sourceFile.length()];
 			fileInputStreamReader.read(bytes);
-			screenShotDestination = System.getProperty("user.dir") + "/Reports/screenshots/" + System.currentTimeMillis() + ".jpeg";
+			screenShotDestination = "/Reports/screenshots/" + System.currentTimeMillis() + ".jpeg";
 			File destination = new File(screenShotDestination);
 			FileUtils.copyFile(sourceFile, destination);
 
@@ -51,8 +54,9 @@ public class Report extends AmazonTest {
 	}
 
 	/*
-	 * Function to Add passed step in report 
+	 * Function to Add passed step in report .
 	 * Attribute; desc- Description to be printed in the report
+	 * @author Aditya
 	 */
 
 	public void passReporting(String desc) {
@@ -66,10 +70,11 @@ public class Report extends AmazonTest {
 	}
 
 	/*
-	 * Function to Add Failed step in report Attribute; desc- Description to be
-	 * printed in the report
+	 * Function to Add Failed step in report .
+	 * Attribute; desc- Description to be printed in the report
+	 * @author Aditya
 	 */
-
+ 
 	public void failReporting(String desc) {
 		String tempSS = new Report().captureScreen();
 		try {

@@ -10,13 +10,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- tools.Report -->
-      <class name="test.AmazonTest">
-        <methods>
-          <include name="amazonTest"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- test.AmazonTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

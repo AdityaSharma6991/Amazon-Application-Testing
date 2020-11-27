@@ -6,20 +6,16 @@ package test;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
-import java.io.IOException;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import screens.AmazonHomeScreen;
 import screens.CartScreen;
 import screens.SearchResultScreen;
 import screens.SelectedProductScreen;
 import screens.SignInScreen;
+import tools.ReadTestData;
 import tools.Report;
 import tools.ReusableUtilities;
 
@@ -31,6 +27,7 @@ import tools.ReusableUtilities;
 public class AmazonTest extends ReusableUtilities {
 	public Report extentReport;
 	public WebDriverWait wait;
+	public ReadTestData testData;
 
 	/*
 	 * Constructor variables of current and parent class.
@@ -41,7 +38,7 @@ public class AmazonTest extends ReusableUtilities {
 	}
 
 	/*
-	 *  Before method to initialize drivers and reporting in before test
+	 *  Before method to initialize drivers and reporting in before test.
 	 *  @author Aditya
 	 */
 	@BeforeMethod
@@ -49,36 +46,33 @@ public class AmazonTest extends ReusableUtilities {
 		// Starting reporting for test
 		extentReport = new Report();
 		extentReport.extentReportInit();
-		propFile = loadPropertyFile(
-				System.getProperty("user.dir") + "\\src\\main\\resources\\PropertiesFiles\\TestData.properties");
-		System.out.println(propFile.getProperty("TestName") + " Started");
-		extentReport.logger = extentReport.report.createTest(propFile.getProperty("TestName"));
+		testData= new ReadTestData();
+		System.out.println(testData.getTestName() + " Started");
+		extentReport.logger = extentReport.report.createTest(testData.getTestName());
 
 		driverSetup(extentReport);
 	}
 
 	/* 
-	 *  Test method to open and test Amazon shopping application
+	 *  Test method to open and test Amazon shopping application.
 	 *  @author Aditya
 	 */
 	@Test
 	public void amazonTest() {
-
+		 
 		new SignInScreen().signInPage(extentReport);
-		new AmazonHomeScreen().searchItem(extentReport);
-		extentReport.captureScreen();
+		new AmazonHomeScreen().searchItem(extentReport,testData.getItemToSearch());
 		SearchResultScreen resultScreen = new SearchResultScreen();
 		resultScreen.selectRandomSearchItem(extentReport);
 		String searchListItem = resultScreen.getRandomItemName();
-		new SelectedProductScreen().addProductToCart(extentReport);
+//		String searchListItem = "Data to check failure";
+		new SelectedProductScreen().addProductToCart(extentReport,testData.getPinCode());
 		new SelectedProductScreen().navigateToCart(extentReport);
-//		String cartScreenItem = new CartScreen().getCartScreenProductDetails(extentReport);
-		String cartScreenItem = "Data to check failure";
-		stringContains(cartScreenItem, searchListItem, extentReport);
+		new CartScreen().compareCartScreenProductDetails(searchListItem, extentReport);;
 	}
 
 	/*
-	 *  After Method to tear down the driver and check execution status
+	 *  After Method to tear down the driver and check execution status.
 	 *  Attribute:result - ITestResult object to get overall execution status
 	 *  @author Aditya
 	 */

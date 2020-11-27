@@ -9,14 +9,18 @@ public class SearchResultScreen extends ReusableUtilities {
 	public String randomItemName;
 
 	/*
-	 * Function to select a random item from the search results 
-	 * Attributes-searchResultReport- Report variable to update the proceedings in report
+	 *	Function to select a random item from the search results .
+	 *	Attributes-searchResultReport- Report variable to update the proceedings in report
+	 *	@author Aditya
 	 */
 	public void selectRandomSearchItem(Report searchResultReport) {
 		randomItemName = selectRandomData("id", itemId, searchResultReport);
 	}
 
-	// Function to get name of item selected from search list
+	/*
+	 *	Function to get name of item selected from search list
+	 *	@author Aditya.
+	 */
 	public String getRandomItemName() {
 		return randomItemName;
 	}

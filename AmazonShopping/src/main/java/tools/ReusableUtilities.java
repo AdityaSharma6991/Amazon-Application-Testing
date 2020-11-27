@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,12 +24,19 @@ public class ReusableUtilities {
 	public static AndroidDriver<MobileElement> driver;
 	public Properties propFile;
 	
-	// constructor to initialize properties file
+	/*
+	 *  Function to initialize properties file.
+	 *  @author Aditya
+	 */
 	public ReusableUtilities() {
 		propFile=new Properties();
 	}
 	
-	// Reusable driver initialization function
+	
+	/*
+	 *  Reusable Function to initialize/start driver.
+	 *  @author Aditya
+	 */
 	public void driverSetup(Report extRep) {
 		try {
 			propFile = loadPropertyFile(System.getProperty("user.dir")+"\\src\\main\\resources\\PropertiesFiles\\capability.properties");
@@ -60,8 +68,10 @@ public class ReusableUtilities {
 
 	}
 	
-	/*Function to load ".properties" file
-	 * Attribute- path- Path of ".properties" file
+	
+	/*  Function to load ".properties" file.
+	 *  Attribute- path- Path of ".properties" file
+	 *  @author Aditya
 	 */
 	public Properties loadPropertyFile(String path) throws IOException {
 		try
@@ -76,10 +86,12 @@ public class ReusableUtilities {
 		return propFile;
 	}
 
-	/* Function to wait for an element to be click-able
-	 * Attributes- elementType- Element type String passed is an id or xpath
+	
+	/*  Function to wait for an element to be click-able.
+	 *  Attributes- elementType- Element type String passed is an id or xpath
 	 * 			  identifier- unique element identifier
 	 * 			  extRep- Object of Report to generate extent report
+	 * 	@author Aditya
 	 */
 	public void waitForElementToBeClickable(String elementType, String identifier, Report extRep) {
 		try {
@@ -97,10 +109,12 @@ public class ReusableUtilities {
 	}
 
 	
-	/* Function to click on an element
-	 * Attributes- elementType- Element type String passed is an id or xpath
-	 * 			  identifier- unique element identifier
-	 * 			  extRep- Object of Report to generate extent report
+	
+	/*  Function to click on an element.
+	 *	Attributes- elementType- Element type String passed is an id or xpath
+	 *				identifier- unique element identifier
+	 *				extRep- Object of Report to generate extent report
+	 *  @author Aditya
 	 */
 	public void click(String elementType, String identifier, Report extRep) {
 		try {
@@ -117,11 +131,14 @@ public class ReusableUtilities {
 			Assert.assertTrue(false, e.getMessage());
 		}
 	}
-	/* Function to input data in a field and press enter
-	 * Attributes- elementType- Element type String passed is an id or xpath
-	 * 			   identifier- unique element identifier
-	 * 			   extRep- Object of Report to generate extent report
-	 * 			   data- text to be entered
+	
+	
+	/*	Function to input data in a field and press enter
+	 *	Attributes- elementType- Element type String passed is an id or xpath
+	 *				identifier- unique element identifier
+	 *				extRep- Object of Report to generate extent report
+	 *				data- text to be entered
+	 *	@author Aditya
 	 */
 	public void inputDataAndPressEnter(String elementType, String identifier, Report extRep, String data) {
 		try {
@@ -148,11 +165,13 @@ public class ReusableUtilities {
 		action.sendKeys(Keys.ENTER).perform();
 	}
 
-	/* Function to select a random element from the list
-	 * Attributes- elementType- Element type String passed is an id or xpath
-	 * 			  identifier- unique element identifier
-	 * 			  extRep- Object of Report to generate extent report
-	 */
+	
+	/*	Function to select a random element from the list.
+	 *	Attributes- elementType- Element type String passed is an id or xpath
+	 *				identifier- unique element identifier
+	 *				extRep- Object of Report to generate extent report
+	 *	@author Aditya
+	 */	
 	public String selectRandomData(String elementType, String identifier, Report extRep) {
 		MobileElement itemSelected = null;
 		String selectedItem="";
@@ -173,14 +192,17 @@ public class ReusableUtilities {
 			e.printStackTrace();
 			extRep.failReporting(e.getMessage());
 			extRep.captureScreen();
+			Assert.assertTrue(false, e.getMessage());
 		}
 		return selectedItem;
 	}
 
-	/* Function to fetch text from an element
-	 * Attributes- elementType- Element type String passed is an id or xpath
-	 * 			  identifier- unique element identifier
-	 * 			  extRep- Object of Report to generate extent report
+	
+	/*	Function to fetch text from an element.
+	 *	Attributes- elementType- Element type String passed is an id or xpath
+	 *				identifier- unique element identifier
+	 *				extRep- Object of Report to generate extent report
+	 *	@author Aditya
 	 */
 	public String getText(String elementType, String identifier, Report extRep) {
 
@@ -196,30 +218,33 @@ public class ReusableUtilities {
 			e.printStackTrace();
 			extRep.failReporting(e.getMessage());
 			extRep.captureScreen();
+			Assert.assertTrue(false, e.getMessage());
 		}
 		return text;
 	}
 	
-//	/* Function to verify if an element is present on the screen
-//	 * Attribute: property- id value of the element to be identified
-//	 */
-//	public boolean verifyElementPresence(String property) {
-//		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//		boolean presence = true;
-//		try {
-//			driver.findElement(By.id(property));
-//			return presence;
-//		} catch (Exception e) {
-//			presence = false;
-//			e.printStackTrace();
-//			return presence;
-//		}
-//	}
+	/* Function to verify if an element is present on the screen
+	 * Attribute: property- id value of the element to be identified
+	 * @author Aditya
+	 */
+	public boolean verifyElementPresence(String property) {
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		boolean presence = true;
+		try {
+			driver.findElement(By.id(property));
+			return presence;
+		} catch (Exception e) {
+			presence = false;
+			e.printStackTrace();
+			return presence;
+		}
+	}
 //	
 //	
 //	/*
-//	 * Function to scroll and check an element is present in UI
+//	 * Function to scroll and check an element is present in UI.
 //	 * Attribute: property- id value of the element to be identified
+//	 *	@author Aditya
 //	 */
 //	public void swipeToElement(String property) {
 //		int count=0;
@@ -238,6 +263,7 @@ public class ReusableUtilities {
 //	/*
 //	 * Function to scroll and check an element is present in UI
 //	 * Attribute: property- xpath value of the element to be identified
+//	 * @author Aditya
 //	 */
 //	@SuppressWarnings("rawtypes")
 //	public void swipeFullFromTopToBottom() {
@@ -256,13 +282,14 @@ public class ReusableUtilities {
 //		}
 //	}
 	
+	
 	/*
-	 * Description: Reusable function to compare 2 strings
-	 * Attribute: smallString-String value to be compared with
-	 * 			  bigString- String value to be compared in
-	 * 			  extReport- Class object of the Reporting class for generating extent report
+	 *  Reusable function to compare 2 strings
+	 *	Attribute: 	smallString-String value to be compared with
+	 *				bigString- String value to be compared in
+	 *				extReport- Class object of the Reporting class for generating extent report
+	 *	@author Aditya
 	 */
-
 	public void stringContains(String smallString,String bigString,Report extRep)
 	{
 		if(bigString.contains(smallString))
@@ -277,5 +304,4 @@ public class ReusableUtilities {
 			extRep.captureScreen();
 		}
 	}
-
 }
