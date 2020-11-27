@@ -176,8 +176,10 @@ public class ReusableUtilities {
 		MobileElement itemSelected = null;
 		String selectedItem="";
 		int min = 1;
-		int max = driver.findElements(By.id(identifier)).size();
-		
+		int max = 5;
+		if(verifyElementPresence(identifier)) {
+			max = driver.findElements(By.id(identifier)).size();
+		}
 		try {
 			if (elementType.equalsIgnoreCase("id")) {
 				itemSelected = driver.findElements(By.id(identifier)).get((int)(Math.random() * (max - min) + min));

@@ -46,7 +46,7 @@ public class Report extends AmazonTest {
 			screenShotDestination = "/Reports/screenshots/" + System.currentTimeMillis() + ".jpeg";
 			File destination = new File(screenShotDestination);
 			FileUtils.copyFile(sourceFile, destination);
-
+			System.out.println("Screenshot taken");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

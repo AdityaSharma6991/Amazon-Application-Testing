@@ -29,6 +29,7 @@ public class AmazonTest extends ReusableUtilities {
 	public WebDriverWait wait;
 	public ReadTestData testData;
 
+	
 	/*
 	 * Constructor variables of current and parent class.
 	 * @author Aditya
@@ -37,6 +38,7 @@ public class AmazonTest extends ReusableUtilities {
 		super();
 	}
 
+	
 	/*
 	 *  Before method to initialize drivers and reporting in before test.
 	 *  @author Aditya
@@ -53,6 +55,7 @@ public class AmazonTest extends ReusableUtilities {
 		driverSetup(extentReport);
 	}
 
+	
 	/* 
 	 *  Test method to open and test Amazon shopping application.
 	 *  @author Aditya
@@ -71,6 +74,7 @@ public class AmazonTest extends ReusableUtilities {
 		new CartScreen().compareCartScreenProductDetails(searchListItem, extentReport);;
 	}
 
+	
 	/*
 	 *  After Method to tear down the driver and check execution status.
 	 *  Attribute:result - ITestResult object to get overall execution status
@@ -82,6 +86,6 @@ public class AmazonTest extends ReusableUtilities {
 			extentReport.failReporting(result.getThrowable().getMessage());
 		driver.quit();
 		extentReport.report.flush();
-		System.out.println(propFile.getProperty("TestName") + " Ended");
+		System.out.println(testData.getTestName() + " Ended");
 	}
 }

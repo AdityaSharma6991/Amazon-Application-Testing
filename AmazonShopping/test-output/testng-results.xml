@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-27T15:59:29 IST" name="Default suite" finished-at="2020-11-27T16:03:20 IST" duration-ms="230723">
+  <suite started-at="2020-11-27T16:24:28 IST" name="Default suite" finished-at="2020-11-27T16:29:37 IST" duration-ms="308712">
     <groups>
     </groups>
-    <test started-at="2020-11-27T15:59:29 IST" name="Default test" finished-at="2020-11-27T16:03:20 IST" duration-ms="230723">
+    <test started-at="2020-11-27T16:24:28 IST" name="Default test" finished-at="2020-11-27T16:29:37 IST" duration-ms="308712">
       <class name="test.AmazonTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T15:59:29 IST" name="setUp" finished-at="2020-11-27T15:59:42 IST" duration-ms="13118" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T16:24:28 IST" name="setUp" finished-at="2020-11-27T16:26:07 IST" duration-ms="98950" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="amazonTest()[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T15:59:42 IST" name="amazonTest" finished-at="2020-11-27T16:02:48 IST" duration-ms="185775" status="PASS">
+        <test-method signature="amazonTest()[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T16:26:07 IST" name="amazonTest" finished-at="2020-11-27T16:28:20 IST" duration-ms="132370" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- amazonTest -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T16:02:48 IST" name="tearDown" finished-at="2020-11-27T16:02:50 IST" duration-ms="1376" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:test.AmazonTest@346d61be]" started-at="2020-11-27T16:28:20 IST" name="tearDown" finished-at="2020-11-27T16:28:21 IST" duration-ms="1338" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -28,62 +28,19 @@
         </test-method> <!-- tearDown -->
       </class> <!-- test.AmazonTest -->
       <class name="tools.Report">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:02:50 IST" name="setUp" finished-at="2020-11-27T16:03:01 IST" duration-ms="11861" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:28:21 IST" name="setUp" finished-at="2020-11-27T16:28:45 IST" duration-ms="24044" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="amazonTest()[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:03:01 IST" name="amazonTest" finished-at="2020-11-27T16:03:18 IST" duration-ms="16859" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Index 0 out of bounds for length 0 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Index 0 out of bounds for length 0 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at tools.ReusableUtilities.selectRandomData(ReusableUtilities.java:195)
-at screens.SearchResultScreen.selectRandomSearchItem(SearchResultScreen.java:17)
-at test.AmazonTest.amazonTest(AmazonTest.java:66)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:764)
-at org.testng.TestRunner.run(TestRunner.java:585)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="amazonTest()[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:28:45 IST" name="amazonTest" finished-at="2020-11-27T16:29:36 IST" duration-ms="51177" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- amazonTest -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:03:18 IST" name="tearDown" finished-at="2020-11-27T16:03:20 IST" duration-ms="1636" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tools.Report@55536d9e]" started-at="2020-11-27T16:29:36 IST" name="tearDown" finished-at="2020-11-27T16:29:37 IST" duration-ms="770" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=amazonTest status=FAILURE method=AmazonTest.amazonTest()[pri:0, instance:tools.Report@55536d9e] output={null}]]]>
+                <![CDATA[[TestResult name=amazonTest status=SUCCESS method=AmazonTest.amazonTest()[pri:0, instance:tools.Report@55536d9e] output={null}]]]>
               </value>
             </param>
           </params>
