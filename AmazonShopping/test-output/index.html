@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\hp\AppData\Local\Temp\testng-eclipse-948292807\testng-customsuite.xml</span>
+                    <span>C:\Users\hp\AppData\Local\Temp\testng-eclipse--1227882922\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -135,13 +135,13 @@
                   <a name="amazonTest">
                   </a> <!-- amazonTest -->
                   <span class="method-name">amazonTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: String comparison Failed expected:Data to check failure contains boAt Bassheads 242 in Ear Wired Earphones with Mic(Active Bla expected [true] but found [false]
+                  <div class="stack-trace">java.lang.AssertionError: Keys to send should be a not null CharSequence expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:99)
 	at org.testng.Assert.failNotEquals(Assert.java:1037)
 	at org.testng.Assert.assertTrue(Assert.java:45)
-	at tools.ReusableUtilities.stringContains(ReusableUtilities.java:304)
-	at screens.CartScreen.compareCartScreenProductDetails(CartScreen.java:18)
-	at test.AmazonTest.amazonTest(AmazonTest.java:74)
+	at tools.ReusableUtilities.inputDataAndPressEnter(ReusableUtilities.java:163)
+	at screens.SelectedProductScreen.addProductToCart(SelectedProductScreen.java:23)
+	at test.AmazonTest.amazonTest(AmazonTest.java:75)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -187,32 +187,13 @@
                   <a name="amazonTest">
                   </a> <!-- amazonTest -->
                   <span class="method-name">amazonTest</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: socket hang up
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DENOFDEADPOOL&apos;, ip: &apos;192.168.137.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.amazon.mShop.splashscre..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, databaseEnabled: false, desired: {appActivity: com.amazon.mShop.splashscre..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, deviceName: SM-M307F/DS, newCommandTimeout: 100, platformName: android, platformVersion: 10, udid: RZ8MA27XANN}, deviceApiLevel: 29, deviceManufacturer: samsung, deviceModel: SM-M307F, deviceName: RZ8MA27XANN, deviceScreenDensity: 420, deviceScreenSize: 1080x2340, deviceUDID: RZ8MA27XANN, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 100, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 78, takesScreenshot: true, udid: RZ8MA27XANN, viewportRect: {height: 2053, left: 0, top: 78, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: eea625a9-e575-4615-8ab0-4612c2a217b2
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:247)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:45)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
-	at tools.Report.captureScreen(Report.java:41)
-	at tools.Report.failReporting(Report.java:81)
-	at tools.ReusableUtilities.selectRandomData(ReusableUtilities.java:195)
-	at screens.SearchResultScreen.selectRandomSearchItem(SearchResultScreen.java:17)
-	at test.AmazonTest.amazonTest(AmazonTest.java:69)
+                  <div class="stack-trace">java.lang.AssertionError: Keys to send should be a not null CharSequence expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at tools.ReusableUtilities.inputDataAndPressEnter(ReusableUtilities.java:163)
+	at screens.SelectedProductScreen.addProductToCart(SelectedProductScreen.java:23)
+	at test.AmazonTest.amazonTest(AmazonTest.java:75)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -250,7 +231,7 @@ Session ID: eea625a9-e575-4615-8ab0-4612c2a217b2
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\hp\AppData\Local\Temp\testng-eclipse-948292807\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hp\AppData\Local\Temp\testng-eclipse--1227882922\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -310,12 +291,12 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'amazonTest')
-data.setCell(0, 2, 'tools.Report')
-data.setCell(0, 3, 51166);
+data.setCell(0, 2, 'test.AmazonTest')
+data.setCell(0, 3, 35132);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'amazonTest')
-data.setCell(1, 2, 'test.AmazonTest')
-data.setCell(1, 3, 26802);
+data.setCell(1, 2, 'tools.Report')
+data.setCell(1, 3, 32440);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -355,30 +336,28 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">amazonTest</span>
-                <span class="method-start">14377 ms</span>
+                <span class="method-start">13547 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">tearDown([TestResult name=amazonTest status=FAILURE method=AmazonTest.amazonTest()[pri:0, instance:test.Amazo...)</span>
-                <span class="method-start">41190 ms</span>
+                <span class="method-start">48739 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tools.Report</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">41226 ms</span>
+                <span class="method-start">52365 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">amazonTest</span>
-                <span class="method-start">53228 ms</span>
+                <span class="method-start">68146 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=amazonTest status=FAILURE method=AmazonTest.amazonTest()[pri:0, instance:tools.Repo...)</span>
-                <span class="method-start">104396 ms</span>
+                <span class="method-start">100591 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

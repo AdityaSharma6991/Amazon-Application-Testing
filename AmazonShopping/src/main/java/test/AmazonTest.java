@@ -72,7 +72,7 @@ public class AmazonTest extends ReusableUtilities {
 //		to check the test for failure un-comment the line below
 //		searchListItem = "Data to check failure";
 		
-		new SelectedProductScreen().addProductToCart(extentReport,testData.getData("PinCode"));
+		new SelectedProductScreen().addProductToCart(extentReport,testData.getData("Pin-code"));
 		new SelectedProductScreen().navigateToCart(extentReport);
 		new CartScreen().compareCartScreenProductDetails(searchListItem, extentReport);;
 	}

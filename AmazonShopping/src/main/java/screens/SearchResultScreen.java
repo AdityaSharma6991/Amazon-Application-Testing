@@ -17,6 +17,7 @@ public class SearchResultScreen extends ReusableUtilities {
 		randomItemName = selectRandomData("id", itemId, searchResultReport);
 	}
 
+	
 	/*
 	 *	Function to get name of item selected from search list
 	 *	@author Aditya.
