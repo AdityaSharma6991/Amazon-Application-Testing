@@ -24,20 +24,9 @@ public class ReadTestData {
 			e.printStackTrace();
 			Assert.assertTrue(false, e.getMessage());
 		}
-//		return testDataProperties;
 	}
 	
-	public String getTestName() {
-		return testDataProperties.getProperty("TestName");
-	}
-	
-	
-	public String getItemToSearch() {
-		return testDataProperties.getProperty("ItemToSearch");
-	}
-	
-	
-	public String getPinCode() {
-		return testDataProperties.getProperty("Pin-code");
+	public String getData(String data) {
+		return testDataProperties.getProperty(data);
 	}
 }

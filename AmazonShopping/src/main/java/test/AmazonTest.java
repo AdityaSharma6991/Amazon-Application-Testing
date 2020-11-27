@@ -49,8 +49,8 @@ public class AmazonTest extends ReusableUtilities {
 		extentReport = new Report();
 		extentReport.extentReportInit();
 		testData= new ReadTestData();
-		System.out.println(testData.getTestName() + " Started");
-		extentReport.logger = extentReport.report.createTest(testData.getTestName());
+		System.out.println(testData.getData("TestName") + " Started");
+		extentReport.logger = extentReport.report.createTest(testData.getData("TestName"));
 
 		driverSetup(extentReport);
 	}
@@ -64,12 +64,15 @@ public class AmazonTest extends ReusableUtilities {
 	public void amazonTest() {
 		 
 		new SignInScreen().signInPage(extentReport);
-		new AmazonHomeScreen().searchItem(extentReport,testData.getItemToSearch());
+		new AmazonHomeScreen().searchItem(extentReport,testData.getData("ItemToSearch"));
 		SearchResultScreen resultScreen = new SearchResultScreen();
 		resultScreen.selectRandomSearchItem(extentReport);
 		String searchListItem = resultScreen.getRandomItemName();
-//		String searchListItem = "Data to check failure";
-		new SelectedProductScreen().addProductToCart(extentReport,testData.getPinCode());
+		
+//		to check the test for failure un-comment the line below
+//		searchListItem = "Data to check failure";
+		
+		new SelectedProductScreen().addProductToCart(extentReport,testData.getData("PinCode"));
 		new SelectedProductScreen().navigateToCart(extentReport);
 		new CartScreen().compareCartScreenProductDetails(searchListItem, extentReport);;
 	}
@@ -86,6 +89,6 @@ public class AmazonTest extends ReusableUtilities {
 			extentReport.failReporting(result.getThrowable().getMessage());
 		driver.quit();
 		extentReport.report.flush();
-		System.out.println(testData.getTestName() + " Ended");
+		System.out.println(testData.getData("TestName") + " Ended");
 	}
 }

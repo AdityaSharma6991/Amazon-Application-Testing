@@ -23,23 +23,26 @@ public class ReusableUtilities {
 
 	public static AndroidDriver<MobileElement> driver;
 	public Properties propFile;
-	
+
 	/*
-	 *  Function to initialize properties file.
-	 *  @author Aditya
+	 * Function to initialize properties file.
+	 * 
+	 * @author Aditya
 	 */
 	public ReusableUtilities() {
-		propFile=new Properties();
+		propFile = new Properties();
 	}
-	
+
 	
 	/*
-	 *  Reusable Function to initialize/start driver.
-	 *  @author Aditya
+	 * Reusable Function to initialize/start driver.
+	 * 
+	 * @author Aditya
 	 */
 	public void driverSetup(Report extRep) {
 		try {
-			propFile = loadPropertyFile(System.getProperty("user.dir")+"\\src\\main\\resources\\PropertiesFiles\\capability.properties");
+			propFile = loadPropertyFile(
+					System.getProperty("user.dir") + "\\src\\main\\resources\\PropertiesFiles\\capability.properties");
 			DesiredCapabilities DesCap = new DesiredCapabilities();
 			DesCap.setCapability(MobileCapabilityType.DEVICE_NAME, propFile.getProperty("deviceName"));
 			DesCap.setCapability(MobileCapabilityType.UDID, propFile.getProperty("udid"));
@@ -50,7 +53,6 @@ public class ReusableUtilities {
 			DesCap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, propFile.getProperty("appActivity"));
 			DesCap.setCapability(MobileCapabilityType.AUTOMATION_NAME, propFile.getProperty("automationName"));
 			DesCap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 100);
-			
 
 			URL url = new URL(propFile.getProperty("url"));
 			driver = new AndroidDriver<MobileElement>(url, DesCap);
@@ -67,31 +69,31 @@ public class ReusableUtilities {
 		}
 
 	}
+
 	
-	
-	/*  Function to load ".properties" file.
-	 *  Attribute- path- Path of ".properties" file
-	 *  @author Aditya
+	/*
+	 * Function to load ".properties" file. 
+	 * Attribute- path- Path of ".properties" file
+	 * @author Aditya
 	 */
 	public Properties loadPropertyFile(String path) throws IOException {
-		try
-		{
-			FileInputStream fs=new FileInputStream(path);
+		try {
+			FileInputStream fs = new FileInputStream(path);
 			propFile.load(fs);
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			Assert.assertTrue(false, e.getMessage());
 		}
 		return propFile;
 	}
-
 	
-	/*  Function to wait for an element to be click-able.
-	 *  Attributes- elementType- Element type String passed is an id or xpath
-	 * 			  identifier- unique element identifier
-	 * 			  extRep- Object of Report to generate extent report
-	 * 	@author Aditya
+
+	/*
+	 * Function to wait for an element to be click-able. 
+	 * Attributes- elementType-Element type String passed is an id or xpath 
+	 * 			   identifier- unique element identifier 
+	 * 			    extRep- Object of Report to generate extent report
+	 * @author Aditya
 	 */
 	public void waitForElementToBeClickable(String elementType, String identifier, Report extRep) {
 		try {
@@ -108,13 +110,12 @@ public class ReusableUtilities {
 		}
 	}
 
-	
-	
-	/*  Function to click on an element.
-	 *	Attributes- elementType- Element type String passed is an id or xpath
-	 *				identifier- unique element identifier
-	 *				extRep- Object of Report to generate extent report
-	 *  @author Aditya
+	/*
+	 * Function to click on an element. Attributes- elementType- Element type String
+	 * passed is an id or xpath identifier- unique element identifier extRep- Object
+	 * of Report to generate extent report
+	 * 
+	 * @author Aditya
 	 */
 	public void click(String elementType, String identifier, Report extRep) {
 		try {
@@ -131,14 +132,14 @@ public class ReusableUtilities {
 			Assert.assertTrue(false, e.getMessage());
 		}
 	}
-	
-	
-	/*	Function to input data in a field and press enter
-	 *	Attributes- elementType- Element type String passed is an id or xpath
-	 *				identifier- unique element identifier
-	 *				extRep- Object of Report to generate extent report
-	 *				data- text to be entered
-	 *	@author Aditya
+
+	/*
+	 * Function to input data in a field and press enter Attributes- elementType-
+	 * Element type String passed is an id or xpath identifier- unique element
+	 * identifier extRep- Object of Report to generate extent report data- text to
+	 * be entered
+	 * 
+	 * @author Aditya
 	 */
 	public void inputDataAndPressEnter(String elementType, String identifier, Report extRep, String data) {
 		try {
@@ -166,29 +167,30 @@ public class ReusableUtilities {
 	}
 
 	
-	/*	Function to select a random element from the list.
-	 *	Attributes- elementType- Element type String passed is an id or xpath
-	 *				identifier- unique element identifier
-	 *				extRep- Object of Report to generate extent report
-	 *	@author Aditya
-	 */	
+	/*
+	 * Function to select a random element from the list. Attributes- elementType-
+	 * Element type String passed is an id or xpath identifier- unique element
+	 * identifier extRep- Object of Report to generate extent report
+	 * 
+	 * @author Aditya
+	 */
 	public String selectRandomData(String elementType, String identifier, Report extRep) {
 		MobileElement itemSelected = null;
-		String selectedItem="";
+		String selectedItem = "";
 		int min = 1;
 		int max = 5;
-		if(verifyElementPresence(identifier)) {
+		if (verifyElementPresence(identifier)) {
 			max = driver.findElements(By.id(identifier)).size();
 		}
 		try {
 			if (elementType.equalsIgnoreCase("id")) {
-				itemSelected = driver.findElements(By.id(identifier)).get((int)(Math.random() * (max - min) + min));
+				itemSelected = driver.findElements(By.id(identifier)).get((int) (Math.random() * (max - min) + min));
 				extRep.passReporting("Random option is selected");
 			} else if (elementType.equalsIgnoreCase("xpath")) {
-				itemSelected = driver.findElements(By.xpath(identifier)).get((int)(Math.random() * (max - min) + min));
+				itemSelected = driver.findElements(By.xpath(identifier)).get((int) (Math.random() * (max - min) + min));
 				extRep.passReporting("Random option is selected");
 			}
-			selectedItem=itemSelected.getText();
+			selectedItem = itemSelected.getText();
 			itemSelected.click();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -200,11 +202,12 @@ public class ReusableUtilities {
 	}
 
 	
-	/*	Function to fetch text from an element.
-	 *	Attributes- elementType- Element type String passed is an id or xpath
-	 *				identifier- unique element identifier
-	 *				extRep- Object of Report to generate extent report
-	 *	@author Aditya
+	/*
+	 * Function to fetch text from an element. 
+	 * Attributes- elementType- Element typeString passed is an id or xpath 
+	 *			   identifier- unique element identifier 
+	 *			   extRep-Object of Report to generate extent report
+	 * @author Aditya
 	 */
 	public String getText(String elementType, String identifier, Report extRep) {
 
@@ -224,9 +227,11 @@ public class ReusableUtilities {
 		}
 		return text;
 	}
+
 	
-	/* Function to verify if an element is present on the screen
-	 * Attribute: property- id value of the element to be identified
+	/*
+	 * Function to verify if an element is present on the screen 
+	 * Attribute:property- id value of the element to be identified
 	 * @author Aditya
 	 */
 	public boolean verifyElementPresence(String property) {
@@ -241,67 +246,22 @@ public class ReusableUtilities {
 			return presence;
 		}
 	}
-//	
-//	
-//	/*
-//	 * Function to scroll and check an element is present in UI.
-//	 * Attribute: property- id value of the element to be identified
-//	 *	@author Aditya
-//	 */
-//	public void swipeToElement(String property) {
-//		int count=0;
-//		while (true) {
-//			if (verifyElementPresence(property)) {
-//				break;
-//			}
-////			swipeFullFromTopToBottom();
-//			count++;
-//			if(count>10)
-//				Assert.assertTrue(false, "Element Not Visible");
-//		}
-//	}
-//	
-	
-//	/*
-//	 * Function to scroll and check an element is present in UI
-//	 * Attribute: property- xpath value of the element to be identified
-//	 * @author Aditya
-//	 */
-//	@SuppressWarnings("rawtypes")
-//	public void swipeFullFromTopToBottom() {
-//		try {
-//			Thread.sleep(2000);
-//			Dimension scrnSize = driver.manage().window().getSize();
-//			int startx = (int) (scrnSize.width / 2);
-//			int endy = (int) (scrnSize.height*0.9);
-//			int starty = (int) (scrnSize.height * 0.2);
-//
-//
-//			new TouchAction(driver).press(startx, endy).moveTo(startx,starty).release().perform();
-//
-//		} catch (InterruptedException e) {
-//			Assert.assertTrue(false,e.getMessage());
-//		}
-//	}
-	
+
 	
 	/*
-	 *  Reusable function to compare 2 strings
-	 *	Attribute: 	smallString-String value to be compared with
-	 *				bigString- String value to be compared in
-	 *				extReport- Class object of the Reporting class for generating extent report
-	 *	@author Aditya
+	 * Reusable function to compare 2 strings 
+	 * Attribute: smallString-String value to be compared with 
+	 * 			  bigString- String value to be compared in 
+	 * 			  extReport- Class object of the Reporting class for generating extent report
+	 * 
+	 * @author Aditya
 	 */
-	public void stringContains(String smallString,String bigString,Report extRep)
-	{
-		if(bigString.contains(smallString))
-		{
+	public void stringContains(String smallString, String bigString, Report extRep) {
+		if (bigString.contains(smallString)) {
 			Assert.assertTrue(true, "String comparison Successful");
-			extRep.passReporting("String compared successfully");
-		}
-		else
-		{
-			Assert.assertTrue(false, "String comparison Failed expected:"+bigString+" contains "+smallString );
+			extRep.passReporting("String compared successfully: " + bigString + " contains " + smallString);
+		} else {
+			Assert.assertTrue(false, "String comparison Failed expected: " + bigString + " contains " + smallString);
 			extRep.failReporting("String comparison failed");
 			extRep.captureScreen();
 		}
