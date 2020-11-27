@@ -3,6 +3,8 @@ package tools;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -40,13 +42,13 @@ public class Report extends AmazonTest {
 		String screenShotDestination = null;
 		FileInputStream fileInputStreamReader = null;
 		try {
+			String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 			fileInputStreamReader = new FileInputStream(sourceFile);
 			byte[] bytes = new byte[(int) sourceFile.length()];
 			fileInputStreamReader.read(bytes);
-			screenShotDestination = "/Reports/screenshots/" + System.currentTimeMillis() + ".jpeg";
+			screenShotDestination = System.getProperty("user.dir")+ "/Reports/screenshots/" + dateName + ".jpeg";
 			File destination = new File(screenShotDestination);
 			FileUtils.copyFile(sourceFile, destination);
-			System.out.println("Screenshot taken");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
